@@ -9,7 +9,7 @@ import { fileURLToPath } from "url";
 import { dirname } from "path";
 import ejs from "ejs";
 import { userRoute } from "./routes/index.js";
-
+import { restaurantRoute } from "./routes/index.js";
 const app = express();
 DBConnect();
 
@@ -32,6 +32,7 @@ app.get("/", (req, res) => {
 });
 
 app.use("/user", userRoute);
+app.use("/restaurant", restaurantRoute);
 
 app.listen(config.PORT, () => {
   console.log(`app is listening on port ${config.PORT}`);
